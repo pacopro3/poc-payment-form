@@ -1,0 +1,126 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	.payment-form {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		max-width: 600px;
+		margin: 0 auto;
+		padding: 2rem;
+		background: #1c1f26;
+		border-radius: 8px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+	.form-group {
+		background: #23262d;
+		padding: 1.5rem;
+		border-radius: 6px;
+	}
+	.form-group h2 {
+		margin-top: 0;
+		margin-bottom: 1rem;
+		color: #fff;
+		font-size: 1.5rem;
+	}
+	.form-field {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1rem;
+	}
+	.form-field label {
+		margin-bottom: 0.5rem;
+		color: #fff;
+	}
+	.input-container {
+		position: relative;
+	}
+	input {
+		width: 100%;
+		padding: 0.5rem;
+		border: 1px solid #3a3f4b;
+		background-color: #2a2d36;
+		color: #fff;
+		border-radius: 4px;
+		font-size: 1rem;
+	}
+	input.error {
+		border-color: #ff4136;
+	}
+	.error-message {
+		color: #ff4136;
+		font-size: 0.8rem;
+		margin-top: 0.25rem;
+	}
+	.submit-button {
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 4px;
+		transition: background-color 0.3s ease;
+	}
+	.submit-button:hover {
+		background-color: #45a049;
+	}
+	.row {
+		display: flex;
+		gap: 1rem;
+	}
+	.row .form-field {
+		flex: 1;
+	}
+</style>
